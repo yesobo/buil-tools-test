@@ -16,8 +16,11 @@ gulp.task('clean-sass', function () {
 });
 
 // gulp-jade is used because gulp-pug does not link .jade partials
-gulp.task('jade', ['clean-jade'], function build() {
-  return gulp.src('JADE-Bootstrap/**/*.jade')
+gulp.task('views', ['clean-jade'], function build() {
+
+  let viewDuration = duration('compiling jade templates');
+
+  return gulp.src('node_modules/JADE-Bootstrap/**/*.jade')
     .pipe(jade({
       data: {
         debug: false
@@ -27,7 +30,7 @@ gulp.task('jade', ['clean-jade'], function build() {
     .pipe(gulp.dest('out_gulp/views/'));
 });
 
-gulp.task('sass', ['clean-sass'], function () {
+gulp.task('styles', ['clean-sass'], function () {
   return gulp.src('main.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -35,5 +38,6 @@ gulp.task('sass', ['clean-sass'], function () {
         noCache: true
     }).on('error', sass.logError))
     .pipe(sourcemaps.write('./'))
+    .pipe(duration('compiling sass'))
     .pipe(gulp.dest('out_gulp/styles/'));
 });

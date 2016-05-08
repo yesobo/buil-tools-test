@@ -1,6 +1,12 @@
+const StatsSaver = require('./modules/save-report/save.js');
+
 module.exports = function(grunt) {
 
-  require('time-grunt')(grunt);
+    const statsFile = './localJson/stats.json';
+    const statsSaver = new StatsSaver('Grunt');
+    require('time-grunt')(grunt, (stats, done) => {
+        statsSaver.saveReport(statsFile, stats, done);
+    });
 
 
   // Project configuration.
@@ -17,7 +23,7 @@ module.exports = function(grunt) {
           files: [{
                 expand: true,
                 ext: ".html",
-                cwd: 'JADE-Bootstrap/',
+                cwd: 'node_modules/JADE-Bootstrap/',
                 src: ['**/*.jade'],
                 dest: 'out_grunt/views/'
           }]

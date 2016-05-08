@@ -1,0 +1,40 @@
+{
+    "executions": [
+        {
+            "runner": "Grunt",
+            "date": "2016-05-08T14:49:08.681Z",
+            "tasks": [
+                {
+                    "name": "loading tasks",
+                    "time": 227
+                },
+                {
+                    "name": "clean:pug",
+                    "time": 122
+                },
+                {
+                    "name": "pug:compile",
+                    "time": 13872
+                }
+            ]
+        },
+        {
+            "runner": "Grunt",
+            "date": "2016-05-08T14:49:42.204Z",
+            "tasks": [
+                {
+                    "name": "loading tasks",
+                    "time": 216
+                },
+                {
+                    "name": "clean:pug",
+                    "time": 123
+                },
+                {
+                    "name": "pug:compile",
+                    "time": 13810
+                }
+            ]
+        }
+    ]
+}
